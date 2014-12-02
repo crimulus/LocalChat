@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate,
+                                              UITableViewDataSource>
+{
+}
 
+@property (weak, nonatomic) IBOutlet UIView *textEntryView;
+@property (weak, nonatomic) IBOutlet UITextField *textEntry;
+@property (weak, nonatomic) IBOutlet UIButton *textSendButton;
+@property (weak, nonatomic) IBOutlet UIScrollView *messagesScrollView;
+@property (weak, nonatomic) IBOutlet UITextView *messagesTextView;
 
 @end
 
