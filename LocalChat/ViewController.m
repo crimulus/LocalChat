@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController () {
-    BOOL hasKeyboard;
+    int currentOffsetForKeyboard;
 }
 
 @end
@@ -36,7 +36,7 @@
                                    action:@selector(hideTheObnoxiousFreakingKeyboard)
                                    ];
     [self.view addGestureRecognizer:tap];
-    hasKeyboard = NO;
+    currentOffsetForKeyboard = 0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,22 +62,15 @@
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {
-    if (hasKeyboard) { [self keyboardWillHide:notification]; }
-
-    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    [UIView
-     animateWithDuration:0.2
-     animations:^{
-        self.textEntryView.center = CGPointMake(
-            self.textEntryView.center.x,
-            self.textEntryView.center.y - keyboardSize.height
-        );
-        [self.messagesScrollView setContentSize:CGSizeMake(
-            self.messagesScrollView.contentSize.width,
-            self.messagesScrollView.contentSize.height - keyboardSize.height
-        )];
-     }];
-    hasKeyboard = YES;
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                        self.textEntryView.center = CGPointMake(
+                            self.textEntryView.center.x,
+                            (self.textEntryView.center.y + currentOffsetForKeyboard) - keyboardSize.height
+                        );
+                     }];
+    currentOffsetForKeyboard = keyboardSize.height;
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification {
@@ -90,7 +83,7 @@
                                                  self.textEntryView.center.y + keyboardSize.height
                                                  );
      }];
-    hasKeyboard = NO;
+    currentOffsetForKeyboard = 0;
 }
 
 @end

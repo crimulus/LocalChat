@@ -7,6 +7,7 @@
 //
 
 #import "ConnectViewController.h"
+#import "CustomTableViewCell.h"
 
 @interface ConnectViewController ()
 
@@ -45,32 +46,32 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //how many rows are in each of the above sections (Total number of cells needing to be displayed).
-    return 0;
+    return 11;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     //This sets the size of the cell at any given index.
-    return 66;
+    return 42;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //The actual code to return each cell, configured with the data you want to display.
     
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"BitchinCellType";
     
-    UITableViewCell *cell = [tableView
+    CustomTableViewCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]
+        cell = [[CustomTableViewCell alloc]
                 initWithStyle:UITableViewCellStyleSubtitle
                 reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell.
-    cell.textLabel.text = @"No array :(";
-    cell.textLabel.textColor = [UIColor grayColor];
-    cell.detailTextLabel.text = @"No array here either :(((";
-    cell.imageView.image = [UIImage imageNamed:@"apple.png"];
+    cell.theLabel.text = @"No array :(";
+    cell.theLabel.textColor = [UIColor grayColor];
+//    cell.detailTextLabel.text = @"No array here either :(((";
+    cell.theImage.image = [UIImage imageNamed:@"jog_tab_right_confirm_yellow"];
     
     return cell;
     
@@ -80,6 +81,9 @@
 #pragma TableView delegate methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //This delegate method gets call when a user taps a TableView cell. This method sends the index of the tapped cell in the indexpath argument.
+    
+    //Show an animated deselection of the selected cell.
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
