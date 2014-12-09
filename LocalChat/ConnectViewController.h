@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import <MultipeerConnectivity/MultipeerConnectivity.h>
 
-@interface ConnectViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ConnectViewController : UIViewController
+    <UITableViewDataSource,
+     UITableViewDelegate,
+     MCBrowserViewControllerDelegate>
+{
+    AppDelegate *appDelegate;
+}
+@property (nonatomic, strong) NSArray *connectedPeers;
 
 @end

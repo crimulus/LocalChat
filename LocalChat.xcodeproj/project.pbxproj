@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7820793D1A2D7AD90034CA90 /* MPCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7820793C1A2D7AD90034CA90 /* MPCManager.m */; };
 		782102301A1EEB07009A4C62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7821022F1A1EEB07009A4C62 /* main.m */; };
 		782102331A1EEB07009A4C62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 782102321A1EEB07009A4C62 /* AppDelegate.m */; };
 		782102361A1EEB07009A4C62 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 782102351A1EEB07009A4C62 /* ViewController.m */; };
@@ -29,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7820793B1A2D7AD90034CA90 /* MPCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPCManager.h; path = ../MPCManager.h; sourceTree = "<group>"; };
+		7820793C1A2D7AD90034CA90 /* MPCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MPCManager.m; path = ../MPCManager.m; sourceTree = "<group>"; };
 		7821022A1A1EEB07009A4C62 /* LocalChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocalChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7821022E1A1EEB07009A4C62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7821022F1A1EEB07009A4C62 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -94,11 +97,13 @@
 				782102371A1EEB07009A4C62 /* Main.storyboard */,
 				788EBFFF1A2442EC00A8D1F2 /* ConnectViewController.h */,
 				788EC0001A2442EC00A8D1F2 /* ConnectViewController.m */,
+				78A579CF1A2D64910008CE9E /* CustomTableViewCell.h */,
+				78A579D01A2D64910008CE9E /* CustomTableViewCell.m */,
+				7820793B1A2D7AD90034CA90 /* MPCManager.h */,
+				7820793C1A2D7AD90034CA90 /* MPCManager.m */,
 				7821023A1A1EEB07009A4C62 /* Images.xcassets */,
 				7821023C1A1EEB07009A4C62 /* LaunchScreen.xib */,
 				7821022D1A1EEB07009A4C62 /* Supporting Files */,
-				78A579CF1A2D64910008CE9E /* CustomTableViewCell.h */,
-				78A579D01A2D64910008CE9E /* CustomTableViewCell.m */,
 			);
 			path = LocalChat;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				782102331A1EEB07009A4C62 /* AppDelegate.m in Sources */,
 				782102301A1EEB07009A4C62 /* main.m in Sources */,
 				78A579D11A2D64910008CE9E /* CustomTableViewCell.m in Sources */,
+				7820793D1A2D7AD90034CA90 /* MPCManager.m in Sources */,
 				788EC0011A2442EC00A8D1F2 /* ConnectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,12 +17,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.connectedPeers = appDelegate.mpcManager.connectedPeers;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)addNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(MPCDidChangeState:)
+                                                 name:@"MPCDidChangeStateNotification"
+                                               object:nil];
+}
+
+- (IBAction)browse:(id)sender {
+    [appDelegate.mpcManager setupMCBrowser];
+    [[appDelegate.mpcManager browser] setDelegate:self];
+    [self presentViewController:[appDelegate.mpcManager browser] animated:YES completion:nil];
+}
+
+- (void)MPCDidChangeState:(NSNotification *)notification {
+    
+}
+
+/********************************************
+** MCBrowserViewControllerDelegate Methods **
+********************************************/
+
+- (void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController {
+    [appDelegate.mpcManager.browser dismissViewControllerAnimated:YES completion:^{}];
+}
+
+- (void)browserViewControllerDidFinish:(MCBrowserViewController *)browserViewController {
+    [appDelegate.mpcManager.browser dismissViewControllerAnimated:YES completion:^{}];
 }
 
 /*
@@ -35,7 +65,6 @@
 }
 */
 
-
 #pragma -mark
 #pragma TableView datasource methods
 
@@ -46,7 +75,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //how many rows are in each of the above sections (Total number of cells needing to be displayed).
-    return 11;
+    return self.connectedPeers.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

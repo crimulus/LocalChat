@@ -7,17 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 @interface ViewController : UIViewController <UITextFieldDelegate,
                                               UITableViewDataSource>
 {
 }
 
-@property (weak, nonatomic) IBOutlet UIView *textEntryView;
-@property (weak, nonatomic) IBOutlet UITextField *textEntry;
-@property (weak, nonatomic) IBOutlet UIButton *textSendButton;
-@property (weak, nonatomic) IBOutlet UIScrollView *messagesScrollView;
-@property (weak, nonatomic) IBOutlet UITextView *messagesTextView;
+@property (weak, nonatomic) IBOutlet UIView         *textEntryView;
+@property (weak, nonatomic) IBOutlet UITextField    *textEntry;
+@property (weak, nonatomic) IBOutlet UIButton       *textSendButton;
+@property (weak, nonatomic) IBOutlet UIScrollView   *messagesScrollView;
+@property (weak, nonatomic) IBOutlet UITextView     *messagesTextView;
+
+@property AppDelegate *appDelegate;
 
 @end
 
